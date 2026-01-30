@@ -1,0 +1,8 @@
+{
+  "/_global-error/page": "/_global-error",
+  "/_not-found/page": "/_not-found",
+  "/api/create-order/route": "/api/create-order",
+  "/favicon.ico/route": "/favicon.ico",
+  "/page": "/",
+  "/thank-you/page": "/thank-you"
+}

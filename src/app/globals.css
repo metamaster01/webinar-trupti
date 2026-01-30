@@ -1,0 +1,104 @@
+@import "tailwindcss";
+
+:root {
+  --wos-brand-primary: #7D4A94;
+  --wos-brand-secondary: #945CAD;
+  --wos-brand-dark: #2D1B36;
+  --wos-brand-accent: #FFD700;
+  --wos-brand-surface: #F8F5FA;
+}
+
+body {
+  background-color: var(--wos-brand-surface);
+  color: var(--wos-brand-dark);
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+.wos-perspective-1000 {
+  perspective: 1000px;
+}
+
+.wos-perspective-2000 {
+  perspective: 2000px;
+}
+
+.wos-transform-style-3d {
+  transform-style: preserve-3d;
+}
+
+.wos-glass-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 8px 32px 0 rgba(125, 74, 148, 0.1);
+}
+
+.wos-glass-dark {
+  background: rgba(45, 27, 54, 0.95);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.wos-text-gradient {
+  background: linear-gradient(135deg, #7D4A94 0%, #B76CD6 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.wos-text-gradient-gold {
+  background: linear-gradient(135deg, #FFD700 0%, #FDB931 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@keyframes wos-float {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-15px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.wos-animate-float {
+  animation: wos-float 6s ease-in-out infinite;
+}
+
+.wos-animate-float-delayed {
+  animation: wos-float 7s ease-in-out infinite;
+  animation-delay: 2s;
+}
+
+.wos-noise-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  content: "";
+  opacity: 0.05;
+  z-index: 50;
+  pointer-events: none;
+  background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+}
+
+.wos-stage-3d {
+  perspective: 1200px;
+}
+
+.wos-rotate-y-0 {
+  transform: rotateY(0deg);
+}
+
+.wos-rotate-y-12 {
+  transform: rotateY(12deg);
+}
