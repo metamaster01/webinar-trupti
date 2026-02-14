@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import Script from 'next/script';
 import { motion } from 'framer-motion';
 import { Check, Calendar, Bell, ShieldCheck } from 'lucide-react';
 
@@ -13,7 +13,7 @@ export default function ThankYouPage() {
             <div className="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] bg-[#7D4A94]/10 rounded-full blur-[120px]" />
             <div className="absolute bottom-[-20%] right-[-10%] w-[500px] h-[500px] bg-[#D4AF37]/10 rounded-full blur-[100px]" />
 
-            <div className="relative z-10 w-full max-w-3xl">
+            <div className="relative z-10 w-full max-w-3xl py-12">
 
                 <div className="text-center mb-12">
                     <motion.div
@@ -32,7 +32,7 @@ export default function ThankYouPage() {
                         transition={{ delay: 0.2 }}
                         className="text-4xl md:text-6xl font-serif mb-4 text-[#2D1B36]"
                     >
-                        Success! <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7D4A94] to-[#B76CD6]">You're Registered.</span>
+                        Success! <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7D4A94] to-[#B76CD6]">You&apos;re Registered.</span>
                     </motion.h1>
 
                     <motion.p
@@ -81,10 +81,37 @@ export default function ThankYouPage() {
 
                     <div className="mt-12 pt-8 border-t border-gray-100 flex flex-col items-center text-center">
                         <p className="text-sm text-gray-400 max-w-lg mb-6">
-                            "The first step to commanding respect is showing up for yourself."
+                            &quot;The first step to commanding respect is showing up for yourself.&quot;
                         </p>
                         <div className="h-1 w-12 bg-[#7D4A94] rounded-full opacity-20" />
                     </div>
+                </motion.div>
+
+                {/* Calendly Section */}
+                <motion.div
+                    initial={{ opacity: 0, y: 40 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.8 }}
+                    className="mt-16 w-full"
+                >
+                    <div className="text-center mb-8">
+                        <h2 className="text-3xl font-serif mb-3 text-[#2D1B36]">Wait! One Last Step...</h2>
+                        <p className="text-gray-600 text-lg">Book your 1-on-1 Strategy Session below to accelerate your results.</p>
+                    </div>
+
+                    <div className="bg-white border border-[#7D4A94]/10 rounded-[2.5rem] overflow-hidden shadow-[0_30px_60px_rgba(45,27,54,0.08)]">
+                        <div
+                            className="calendly-inline-widget w-full"
+                            data-url="https://calendly.com/talkanwin/30min"
+                            style={{ minWidth: '320px', height: '700px' }}
+                        />
+                    </div>
+
+                    <Script
+                        type="text/javascript"
+                        src="https://assets.calendly.com/assets/external/widget.js"
+                        strategy="lazyOnload"
+                    />
                 </motion.div>
             </div>
         </main>

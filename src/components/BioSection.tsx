@@ -2,8 +2,7 @@
 
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform, Variants } from 'framer-motion';
-import { Crown, Mic, Quote, ArrowUpRight } from 'lucide-react';
-import CtaPaymentModal from './CtaPaymentModal';
+import { Crown, Mic, Quote } from 'lucide-react';
 
 const fadeInUp: Variants = {
     hidden: { opacity: 0, y: 40 },
@@ -45,7 +44,7 @@ export default function EditorialStorySection() {
                         <div className="inline-flex items-center gap-3 mb-6">
                             <span className="w-12 h-[1px] bg-[#D4AF37]" />
                             <span className="text-xs font-bold tracking-[0.25em] uppercase text-[#D4AF37]">
-                                The Founder's Journey
+                                The Founder&apos;s Journey
                             </span>
                         </div>
 
@@ -143,18 +142,9 @@ export default function EditorialStorySection() {
                                         &quot;If you&apos;re from humble roots, battling invisible fears... I&apos;ve been there.&quot;
                                     </p>
                                 </div>
-                                <div className="shrink-0">
-                                    <CtaPaymentModal
-                                        trigger={
-                                            <div className="flex flex-col items-center">
-                                                <button className="relative overflow-hidden bg-[#2D1B36] text-white w-16 h-16 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                                                    <ArrowUpRight className="w-6 h-6 text-[#D4AF37]" />
-                                                    <div className="absolute inset-0 bg-white/10 scale-0 group-hover:scale-100 rounded-full transition-transform duration-300" />
-                                                </button>
-                                                <p className="text-[10px] font-bold text-center mt-2 uppercase tracking-wider text-[#2D1B36]">Register</p>
-                                            </div>
-                                        }
-                                    />
+                                <div className="hidden md:block w-[1px] h-20 bg-gray-100 mx-4" />
+                                <div className="shrink-0 text-center md:text-right">
+                                    <p className="text-[10px] font-bold uppercase tracking-widest text-[#D4AF37] mt-1">Founder, Triputi</p>
                                 </div>
                             </div>
                         </motion.div>

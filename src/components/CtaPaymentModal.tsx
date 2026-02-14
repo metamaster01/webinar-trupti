@@ -20,7 +20,7 @@ export default function CtaPaymentModal({ trigger, buttonClassName, buttonText =
         phone: "",
     });
 
-    const [utm, setUtm] = useState<any>({});
+    const [utm, setUtm] = useState<Record<string, string>>({});
 
     useEffect(() => {
         setMounted(true);
@@ -35,7 +35,7 @@ export default function CtaPaymentModal({ trigger, buttonClassName, buttonText =
             "fclid",
         ];
 
-        const data: any = {};
+        const data: Record<string, string> = {};
         keys.forEach((k) => {
             const v = params.get(k);
             if (v) data[k] = v;
@@ -83,6 +83,26 @@ export default function CtaPaymentModal({ trigger, buttonClassName, buttonText =
                 return;
             }
 
+            // Fire Pabbly Webhook (Lead Capture) before opening Razorpay
+            try {
+                await fetch("https://connect.pabbly.com/workflow/sendwebhookdata/IjU3NjcwNTZjMDYzMDA0MzY1MjZjNTUzMjUxM2Ii_pc", {
+                    method: "POST",
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: new URLSearchParams({
+                        ...form,
+                        ...utm,
+                        order_id: data.order_id || 'N/A',
+                        source_url: window.location.href,
+                        timestamp: new Date().toISOString()
+                    }).toString(),
+                });
+            } catch (webhookErr) {
+                console.error("Webhook Error:", webhookErr);
+                // We don't block payment if webhook fails, but we log it
+            }
+
             const options = {
                 key: data.key_id,
                 order_id: data.order_id,
@@ -102,7 +122,7 @@ export default function CtaPaymentModal({ trigger, buttonClassName, buttonText =
                     customer_email: form.email,
                     customer_phone: form.phone,
                 },
-                handler: function (response: any) {
+                handler: function () {
                     window.location.href = "/thank-you";
                 },
                 modal: {
@@ -115,7 +135,7 @@ export default function CtaPaymentModal({ trigger, buttonClassName, buttonText =
                 },
             };
 
-            // @ts-ignore
+            // @ts-expect-error - Razorpay is added via script tag
             const Razorpay = window.Razorpay;
 
             if (Razorpay) {
@@ -125,9 +145,10 @@ export default function CtaPaymentModal({ trigger, buttonClassName, buttonText =
                 alert("Payment gateway (Razorpay) is not ready yet. Please wait 2 seconds and try again.");
                 setLoading(false);
             }
-        } catch (err: any) {
+        } catch (err: unknown) {
             console.error("Payment Error:", err);
-            alert("Error: " + (err.message || "Something went wrong while opening the checkout."));
+            const message = err instanceof Error ? err.message : "Something went wrong while opening the checkout.";
+            alert("Error: " + message);
             setLoading(false);
         }
     };
