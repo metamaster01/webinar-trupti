@@ -17,7 +17,7 @@ export default function StickyActionLight() {
                         <div className="flex flex-col">
                             <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#7D4A94]">Workshop Date</span>
                             <span className="text-sm md:text-base font-bold text-[#2D1B36]">
-                                8th Jan 2026, 7 PM
+                                19th Feb 2026, 7 PM
                             </span>
                         </div>
                     </div>
