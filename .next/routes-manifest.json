@@ -57,6 +57,24 @@
       "regex": "^/thank\\-you(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/thank\\-you(?:/)?$"
+    },
+    {
+      "page": "/vsl",
+      "regex": "^/vsl(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/vsl(?:/)?$"
+    },
+    {
+      "page": "/vsl-optin",
+      "regex": "^/vsl\\-optin(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/vsl\\-optin(?:/)?$"
+    },
+    {
+      "page": "/vsl-thankyou",
+      "regex": "^/vsl\\-thankyou(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/vsl\\-thankyou(?:/)?$"
     }
   ],
   "dataRoutes": [],

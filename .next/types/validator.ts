@@ -65,6 +65,33 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
   type __Unused = __Check
 }
 
+// Validate ../../src/app/vsl-optin/page.tsx
+{
+  type __IsExpected<Specific extends AppPageConfig<"/vsl-optin">> = Specific
+  const handler = {} as typeof import("../../src/app/vsl-optin/page.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
+// Validate ../../src/app/vsl-thankyou/page.tsx
+{
+  type __IsExpected<Specific extends AppPageConfig<"/vsl-thankyou">> = Specific
+  const handler = {} as typeof import("../../src/app/vsl-thankyou/page.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
+// Validate ../../src/app/vsl/page.tsx
+{
+  type __IsExpected<Specific extends AppPageConfig<"/vsl">> = Specific
+  const handler = {} as typeof import("../../src/app/vsl/page.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
 // Validate ../../src/app/api/create-order/route.ts
 {
   type __IsExpected<Specific extends RouteHandlerConfig<"/api/create-order">> = Specific

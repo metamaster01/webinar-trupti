@@ -4,5 +4,8 @@
   "/api/create-order/route": "app/api/create-order/route.js",
   "/favicon.ico/route": "app/favicon.ico/route.js",
   "/page": "app/page.js",
-  "/thank-you/page": "app/thank-you/page.js"
+  "/thank-you/page": "app/thank-you/page.js",
+  "/vsl-optin/page": "app/vsl-optin/page.js",
+  "/vsl-thankyou/page": "app/vsl-thankyou/page.js",
+  "/vsl/page": "app/vsl/page.js"
 }

@@ -3,10 +3,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { CheckCircle2, Calendar } from 'lucide-react';
+import PixelTracker from '@/components/PixelTracker';
 
 export default function VSLThankYouPage() {
     return (
         <main className="min-h-screen bg-[#FAFAFA] text-[#2D1B36] font-sans selection:bg-[#D4AF37] selection:text-white relative overflow-hidden flex flex-col items-center py-12 px-4">
+            <PixelTracker eventName="Purchase" />
 
             {/* --- BACKGROUND TEXTURES --- */}
             <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/concrete-wall.png')] opacity-[0.4] mix-blend-multiply pointer-events-none" />

@@ -3,10 +3,12 @@
 import Script from 'next/script';
 import { motion } from 'framer-motion';
 import { Check, Calendar, Bell, ShieldCheck } from 'lucide-react';
+import PixelTracker from '@/components/PixelTracker';
 
 export default function ThankYouPage() {
     return (
         <main className="min-h-screen bg-[#FAFAFA] text-[#2D1B36] selection:bg-[#7D4A94] selection:text-white flex flex-col items-center justify-center relative overflow-hidden p-6 font-sans">
+            <PixelTracker eventName="Purchase" />
 
             {/* Background Aesthetics */}
             <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03] mix-blend-multiply pointer-events-none" />

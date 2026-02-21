@@ -6,6 +6,7 @@ import { Play, Volume2, ArrowRight, Lock } from 'lucide-react';
 import SuccessStoriesSlider from '../../components/feedbackforvsl';
 import OutcomeComparisonSection from '../../components/whychoosethis6minvsl';
 import OptinPopup from '../../components/OptinPopup';
+import PixelTracker from '@/components/PixelTracker';
 
 export default function VSLOptinPage() {
     const [showModal, setShowModal] = useState(false);
@@ -15,6 +16,7 @@ export default function VSLOptinPage() {
 
     return (
         <main className="min-h-screen bg-[#FAFAFA] text-[#2D1B36] font-sans selection:bg-[#D4AF37] selection:text-white flex flex-col relative overflow-hidden">
+            <PixelTracker eventName="PageView" />
 
             <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/concrete-wall.png')] opacity-[0.4] mix-blend-multiply pointer-events-none" />
             <div className="absolute top-0 left-0 w-full h-[500px] bg-gradient-to-b from-[#7D4A94]/5 to-transparent pointer-events-none" />

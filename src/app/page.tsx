@@ -13,10 +13,12 @@ import BonusVault from '../components/BonusVault';
 import FomoSection from '../components/FomoSection';
 import FaqSection from '../components/FaqSection';
 import StickyAction from '../components/StickyAction';
+import PixelTracker from '../components/PixelTracker';
 
 export default function LandingPage() {
   return (
     <main className="w-full overflow-x-hidden bg-[#FFFCF8]">
+      <PixelTracker eventName="PageView" />
       <HeroCinematic />
       <StruggleSection />
       <RealityCheck />

@@ -6,12 +6,14 @@ import { Play, Gift, ArrowRight, Clock, ShieldCheck, Volume2 } from 'lucide-reac
 import BonusRiskFreeSection from '@/components/Riskfreebounus';
 import BioSection from '@/components/BioSection';
 import SuccessStoriesSlider from '@/components/feedbackforvsl';
+import PixelTracker from '@/components/PixelTracker';
 
 export default function VSLHero() {
     const [isPlaying, setIsPlaying] = useState(false);
 
     return (
         <>
+            <PixelTracker eventName="Lead" />
             <section className="relative min-h-screen bg-[#FAFAFA] text-[#2D1B36] font-sans selection:bg-[#D4AF37] selection:text-white pb-20 overflow-x-hidden">
 
                 {/* --- BACKGROUND TEXTURES --- */}
