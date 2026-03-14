@@ -10,7 +10,7 @@ interface OptinPopupProps {
 }
 
 export default function OptinPopup({ isOpen, onClose }: OptinPopupProps) {
-    const [formData, setFormData] = useState({ name: '', email: '', phone: '' });
+    const [formData, setFormData] = useState({ name: '', email: '', phone: '', salary: '', city: '' });
     const [utm, setUtm] = useState<Record<string, string>>({});
     const [loading, setLoading] = useState(false);
 
@@ -118,6 +118,37 @@ export default function OptinPopup({ isOpen, onClose }: OptinPopupProps) {
                                     <label className="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-1">Phone Number</label>
                                     <input type="tel" required placeholder="+91 99999 99999" className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#7D4A94]/20 focus:border-[#7D4A94] text-[#2D1B36]"
                                         value={formData.phone} onChange={(e) => setFormData({ ...formData, phone: e.target.value })} disabled={loading} />
+                                </div>
+                                <div className="grid grid-cols-2 gap-4">
+                                    <div>
+                                        <label className="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-1">Salary</label>
+                                        <select
+                                            required
+                                            className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#7D4A94]/20 focus:border-[#7D4A94] text-[#2D1B36] appearance-none"
+                                            value={formData.salary}
+                                            onChange={(e) => setFormData({ ...formData, salary: e.target.value })}
+                                            disabled={loading}
+                                        >
+                                            <option value="">Select</option>
+                                            <option value="3-6 LPA">₹3 - ₹6 LPA</option>
+                                            <option value="6-10 LPA">₹6 - ₹10 LPA</option>
+                                            <option value="10-15 LPA">₹10 - ₹15 LPA</option>
+                                            <option value="15-25 LPA">₹15 - ₹25 LPA</option>
+                                            <option value="25+ LPA">₹25+ LPA</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label className="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-1">City</label>
+                                        <input
+                                            type="text"
+                                            required
+                                            placeholder="Ex. Mumbai"
+                                            className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#7D4A94]/20 focus:border-[#7D4A94] text-[#2D1B36]"
+                                            value={formData.city}
+                                            onChange={(e) => setFormData({ ...formData, city: e.target.value })}
+                                            disabled={loading}
+                                        />
+                                    </div>
                                 </div>
                                 <button type="submit" disabled={loading} className="w-full bg-[#2D1B36] text-white font-bold py-4 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 mt-2 relative overflow-hidden group">
                                     <div className="absolute inset-0 bg-gradient-to-r from-[#7D4A94] to-[#2D1B36] translate-y-full group-hover:translate-y-0 transition-transform duration-300" />

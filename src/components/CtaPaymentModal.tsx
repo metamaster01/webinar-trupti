@@ -18,6 +18,8 @@ export default function CtaPaymentModal({ trigger, buttonClassName, buttonText =
         name: "",
         email: "",
         phone: "",
+        salary: "",
+        city: "",
     });
 
     const [utm, setUtm] = useState<Record<string, string>>({});
@@ -57,8 +59,8 @@ export default function CtaPaymentModal({ trigger, buttonClassName, buttonText =
     }, [open]);
 
     const startPayment = async () => {
-        if (!form.name || !form.email || !/^\d{10}$/.test(form.phone)) {
-            alert("Please enter valid details (10-digit phone number is required)");
+        if (!form.name || !form.email || !/^\d{10}$/.test(form.phone) || !form.salary || !form.city) {
+            alert("Please fill in all details correctly.");
             return;
         }
 
@@ -215,6 +217,35 @@ export default function CtaPaymentModal({ trigger, buttonClassName, buttonText =
                                     maxLength={10}
                                     value={form.phone}
                                     onChange={(e) => setForm({ ...form, phone: e.target.value.replace(/\D/g, "").slice(0, 10) })}
+                                />
+                            </div>
+                        </div>
+
+                        <div className="grid grid-cols-2 gap-4">
+                            <div>
+                                <label className="block text-[10px] font-bold text-[#7D4A94] uppercase tracking-[0.2em] mb-2 ml-1">Salary</label>
+                                <select
+                                    className="w-full p-4 border-2 border-gray-100 bg-[#FAFAFA] rounded-2xl focus:bg-white focus:ring-4 focus:ring-[#7D4A94]/5 focus:border-[#7D4A94] outline-none transition-all text-[#2D1B36] font-medium text-lg appearance-none"
+                                    disabled={loading}
+                                    value={form.salary}
+                                    onChange={(e) => setForm({ ...form, salary: e.target.value })}
+                                >
+                                    <option value="">Select</option>
+                                    <option value="3-6 LPA">₹3-6L</option>
+                                    <option value="6-10 LPA">₹6-10L</option>
+                                    <option value="10-15 LPA">₹10-15L</option>
+                                    <option value="15-25 LPA">₹15-25L</option>
+                                    <option value="25+ LPA">₹25L+</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label className="block text-[10px] font-bold text-[#7D4A94] uppercase tracking-[0.2em] mb-2 ml-1">City</label>
+                                <input
+                                    placeholder="Mumbai"
+                                    className="w-full p-4 border-2 border-gray-100 bg-[#FAFAFA] rounded-2xl focus:bg-white focus:ring-4 focus:ring-[#7D4A94]/5 focus:border-[#7D4A94] outline-none transition-all text-[#2D1B36] font-medium text-lg placeholder:text-gray-300"
+                                    disabled={loading}
+                                    value={form.city}
+                                    onChange={(e) => setForm({ ...form, city: e.target.value })}
                                 />
                             </div>
                         </div>
